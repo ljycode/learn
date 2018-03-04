@@ -11,6 +11,7 @@ git clone https://github.com/ljycode/learn.git
 git checkout -b dev 创建dev分支，然后切换到dev分支
 git branch 查看当前分支
 
+
 git status  查看状态
 git add . 把有变化的文件加入暂存区
 git commit -m '注释信息'  做版本
