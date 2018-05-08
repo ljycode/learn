@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片无序预加载之QQ表情</title>
+
+    <style>
+        body,ul,li,p{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background: #eee;
+        }
+        ul li{
+           list-style-type: none;
+        }
+        .box{
+            margin:150px 0 0 200px;
+        }
+        #face-btn{
+            display:block;
+            text-indent:20px;
+            background:url(img/117.gif) no-repeat 0 1px;
+            color:#333;
+            text-decoration: none;
+
+        }
+        #face-btn:hover{
+            background:url(img/131.gif) no-repeat 0 1px;
+        }
+        .panel{
+            margin-top:10px;
+            width:443px;
+            padding:6px;
+            border:1px solid #ccc;
+            background-color:#fff;
+            display:none;
+        }
+        .loading{
+            text-align:center;
+        }
+        .list li{
+            display:inline-block;
+            margin-bottom:5px;
+            width:24px;
+            height:24px;
+            border:1px solid #fff;
+            cursor:pointer;
+        }
+        .list li:hover{
+            border-color:#06c;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="javascript:;" id="face-btn">表情</a>
+        <div class="panel">
+            <p class="loading">表情加载中，请稍后...</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../preLoad.js"></script>
+    <script>
+        var $btn = $("#face-btn"),
+            $panel = $(".panel");
+
+        var imgs = [];
+
+        for(var i = 0 ; i < 132 ; i++){
+            imgs[i] = "face/QQ/" + (i+1) + ".gif";
+        }
+
+        var len = imgs.length;
+
+        $btn.on("click", function(e){
+            e.stopPropagation();
+
+            $panel.show();
+
+            $.preload(imgs,{
+                all:function(){
+                    var html = "";
+                    html += "<ul class=\"list\">";
+
+                    for(var i = 0 ; i < len ; i++){
+                        html += '<li><img src="' + imgs[i] +'" alt=""></li>';
+                    }
+
+                    html += "</ul>";
+
+                    $panel.html(html);
+                }
+            })
+        });
+        $(document).on("click", function(){
+            $panel.hide();
+        });
+    </script>
+</body>
+</html>

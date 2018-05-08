@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #ele{
+            width:200px;
+            height:100px;
+            background:#ddd;
+        }
+        #ele:hover{
+            /*平移 x,y轴*/
+            transform:translate(20px,20px);
+            margin:200px;
+            /*2D旋转*/
+            transform:rotate(30deg);
+            /*缩放*/
+            transform:scale(0.5,0.5);
+            /*斜切,倾斜角度*/
+            transform:skew(50deg,0);
+        }
+        .box1{
+            margin: 30px;
+            width:100px;
+            height:100px;
+            text-align:center;
+            color:red;
+            background: #dddddd;
+        }
+        .box1:hover{
+            /*渐变效果--渐变的属性 动画时间 效果(快慢) 延迟时间*/
+            /*transition:transform 2s ease-in-out 1s;*/
+            transition:all 2s ease-in-out 1s;
+            transform:scale(0.7,0.7);
+            background:#333;
+            filter:alpha(opicity:10);
+            opicity:10;
+        }
+    </style>
+</head>
+<body>
+    <figure id="ele">
+        <img src="" alt="" width="300" height="100">
+        <figcaption>图片注解</figcaption>
+    </figure>
+    <div class="box1">
+        <h3>盒子内容</h3>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bbb.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .btn{
+            margin:80px 60px;
+            width: 100px;
+            height:30px;
+        }
+    </style>
+</head>
+<body>
+    <input class="btn" type="button" value="弹出窗口1" >
+    <a href="b.html">跳转到b页面</a>
+    <input class="btn" type="button" value="弹出窗口2" >
+
+<script src="https://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="jquery.cookie.js"></script>
+<script src="bbb.js"></script>
+    <script>
+        $(function(){
+            $('.btn').click(function () {
+               $.alt(1,2)
+            })
+
+        })
+    </script>
+</body>
+</html>
